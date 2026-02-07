@@ -28,7 +28,7 @@ function MapController({ center }) {
     const map = useMap();
     useEffect(() => {
         if (center) {
-            map.flyTo(center, 16);
+            map.flyTo(center, 10); // Zoomed out for regional view as requested
         }
     }, [center, map]);
     return null;
@@ -99,7 +99,7 @@ export default function RiskMap() {
                     {showRiskLayer ? 'Hide Heatmap' : 'Show Heatmap'}
                 </button>
 
-                <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%", zIndex: 0 }}>
+                <MapContainer center={position} zoom={10} style={{ height: "100%", width: "100%", zIndex: 0 }}>
                     <MapController center={position} />
                     <TileLayer
                         attribution="&copy; OpenStreetMap contributors"
@@ -109,7 +109,7 @@ export default function RiskMap() {
                     {/* User location marker */}
                     <CircleMarker
                         center={position}
-                        radius={8}
+                        radius={5}
                         pathOptions={{ color: 'blue', fillColor: 'blue', fillOpacity: 0.8 }}
                     >
                         <Popup>You are here</Popup>
