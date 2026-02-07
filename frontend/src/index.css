@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors - Soft Cream Theme */
+    --background: 30 50% 98%;
+    --foreground: 0 0% 10%;
+
+    /* Cards - Pure white with warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Primary - Soft Coral Pink */
+    --primary: 350 70% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft Lavender */
+    --secondary: 280 40% 94%;
+    --secondary-foreground: 280 30% 30%;
+
+    /* Muted - Warm Grey */
+    --muted: 30 20% 94%;
+    --muted-foreground: 30 10% 45%;
+
+    /* Accent - Peachy Orange */
+    --accent: 25 90% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+
+    /* SOS Red */
+    --sos: 0 85% 55%;
+    --sos-foreground: 0 0% 100%;
+
+    /* Safe Green */
+    --safe: 150 60% 45%;
+    --safe-foreground: 0 0% 100%;
+
+    /* Risk Colors */
+    --risk-low: 142 70% 50%;
+    --risk-medium: 38 92% 55%;
+    --risk-high: 0 85% 55%;
+
+    --border: 30 30% 90%;
+    --input: 30 30% 90%;
+    --ring: 350 70% 60%;
+
+    --radius: 1rem;
+
+    /* Gradient Colors */
+    --gradient-pink: 350 80% 75%;
+    --gradient-purple: 280 60% 70%;
+    --gradient-orange: 25 90% 70%;
+    --gradient-cream: 30 50% 95%;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 8px 30px -4px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 20px 50px -10px hsl(0 0% 0% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 10% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 350 70% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 30% 20%;
+    --secondary-foreground: 280 40% 90%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 10% 60%;
+
+    --accent: 25 90% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 350 70% 60%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+
+  /* Gradient Background */
+  .gradient-bg {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, hsl(var(--gradient-pink) / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 30%, hsl(var(--gradient-purple) / 0.25) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 50% at 60% 80%, hsl(var(--gradient-orange) / 0.2) 0%, transparent 50%),
+      hsl(var(--gradient-cream));
+  }
+
+  /* Glass Card Effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-white/40 rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Elevated Card */
+  .elevated-card {
+    @apply bg-card rounded-2xl border border-border/50;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Soft Button */
+  .btn-soft {
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* SOS Button */
+  .sos-button {
+    @apply bg-[hsl(var(--sos))] text-white rounded-full shadow-lg;
+    @apply hover:shadow-xl hover:scale-105 transition-all duration-300;
+    box-shadow: 0 4px 20px hsl(var(--sos) / 0.4);
+  }
+
+  .sos-button:hover {
+    box-shadow: 0 8px 30px hsl(var(--sos) / 0.5);
+  }
+
+  /* Safe Badge */
+  .badge-safe {
+    @apply bg-[hsl(var(--safe))] text-white px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Warning Badge */
+  .badge-warning {
+    @apply bg-[hsl(var(--warning))] text-[hsl(var(--warning-foreground))] px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Danger Badge */
+  .badge-danger {
+    @apply bg-[hsl(var(--sos))] text-white px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Status Dot */
+  .status-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+
+  .status-dot-active {
+    @apply bg-[hsl(var(--safe))];
+    animation: pulse-safe 2s infinite;
+  }
+
+  .status-dot-sos {
+    @apply bg-[hsl(var(--sos))];
+    animation: pulse-sos 1s infinite;
+  }
+
+  /* Risk Heatmap Colors */
+  .risk-low {
+    background: hsl(var(--risk-low) / 0.4);
+  }
+
+  .risk-medium {
+    background: hsl(var(--risk-medium) / 0.5);
+  }
+
+  .risk-high {
+    background: hsl(var(--risk-high) / 0.5);
+  }
+
+  /* Bottom Navigation */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-xl border-t border-border/50;
+    box-shadow: 0 -4px 20px hsl(0 0% 0% / 0.05);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Top Navigation */
+  .top-nav {
+    @apply fixed top-0 left-0 right-0 bg-card/90 backdrop-blur-xl border-b border-border/50 z-50;
+    box-shadow: 0 4px 20px hsl(0 0% 0% / 0.03);
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px bg-border/60;
+  }
+
+  /* Input Style */
+  .input-soft {
+    @apply bg-muted/50 border-border/50 rounded-xl px-4 py-3;
+    @apply focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all;
+  }
+}
+
+@layer utilities {
+
+  /* Animations */
+  @keyframes pulse-safe {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes pulse-sos {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 0 0 0 hsl(var(--sos) / 0.5);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 0 0 8px hsl(var(--sos) / 0);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg,
+        hsl(var(--muted)) 0%,
+        hsl(var(--card)) 50%,
+        hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Safe area padding for mobile */
+  .safe-bottom {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .safe-top {
+    padding-top: calc(4rem + env(safe-area-inset-top));
+  }
+}

@@ -1,0 +1,638 @@
+{
+    "home": {
+        "en": "Home",
+        "hi": "होम"
+    },
+    "travel": {
+        "en": "Travel",
+        "hi": "यात्रा"
+    },
+    "safeZones": {
+        "en": "Safe Zones",
+        "hi": "सुरक्षित क्षेत्र"
+    },
+    "guardian": {
+        "en": "Guardian",
+        "hi": "अभिभावक"
+    },
+    "profile": {
+        "en": "Profile",
+        "hi": "प्रोफ़ाइल"
+    },
+    "features": {
+        "en": "Features",
+        "hi": "विशेषताएं"
+    },
+    "guardianPortal": {
+        "en": "Guardian Portal",
+        "hi": "अभिभावक पोर्टल"
+    },
+    "contact": {
+        "en": "Contact",
+        "hi": "संपर्क"
+    },
+    "heroTitle": {
+        "en": "Smart Travel Safety for Women",
+        "hi": "महिलाओं के लिए स्मार्ट यात्रा सुरक्षा"
+    },
+    "heroSubtitle": {
+        "en": "Real-time tracking, instant SOS alerts, and AI-powered safety features to keep you protected on every journey.",
+        "hi": "हर यात्रा पर आपकी सुरक्षा के लिए रीयल-टाइम ट्रैकिंग, तत्काल SOS अलर्ट और AI-संचालित सुरक्षा सुविधाएं।"
+    },
+    "startTravelMode": {
+        "en": "Start Travel Mode",
+        "hi": "यात्रा मोड शुरू करें"
+    },
+    "openGuardianPortal": {
+        "en": "Open Guardian Portal",
+        "hi": "अभिभावक पोर्टल खोलें"
+    },
+    "travelMode": {
+        "en": "Travel Mode",
+        "hi": "यात्रा मोड"
+    },
+    "travelModeOn": {
+        "en": "Travel Mode ON",
+        "hi": "यात्रा मोड चालू"
+    },
+    "travelModeOff": {
+        "en": "Travel Mode OFF",
+        "hi": "यात्रा मोड बंद"
+    },
+    "emergencyContacts": {
+        "en": "Emergency Contacts",
+        "hi": "आपातकालीन संपर्क"
+    },
+    "addContact": {
+        "en": "Add Contact",
+        "hi": "संपर्क जोड़ें"
+    },
+    "activeTravelStatus": {
+        "en": "Active Travel Status",
+        "hi": "सक्रिय यात्रा स्थिति"
+    },
+    "travelHistory": {
+        "en": "Travel History",
+        "hi": "यात्रा इतिहास"
+    },
+    "batteryTracking": {
+        "en": "Battery-Aware Tracking",
+        "hi": "बैटरी-जागरूक ट्रैकिंग"
+    },
+    "language": {
+        "en": "Language",
+        "hi": "भाषा"
+    },
+    "selectDestination": {
+        "en": "Select Destination",
+        "hi": "गंतव्य चुनें"
+    },
+    "homeLocation": {
+        "en": "Home",
+        "hi": "घर"
+    },
+    "hostel": {
+        "en": "Hostel",
+        "hi": "हॉस्टल"
+    },
+    "college": {
+        "en": "College",
+        "hi": "कॉलेज"
+    },
+    "custom": {
+        "en": "Custom",
+        "hi": "कस्टम"
+    },
+    "expectedArrival": {
+        "en": "Expected Arrival",
+        "hi": "अपेक्षित आगमन"
+    },
+    "timeRemaining": {
+        "en": "Time Remaining",
+        "hi": "शेष समय"
+    },
+    "reachedDestination": {
+        "en": "Reached Destination",
+        "hi": "गंतव्य पहुंचे"
+    },
+    "arrivedSafe": {
+        "en": "Arrived Safe",
+        "hi": "सुरक्षित पहुंचे"
+    },
+    "delayDetected": {
+        "en": "Delay Detected",
+        "hi": "विलंब का पता चला"
+    },
+    "areYouSafe": {
+        "en": "Are you safe?",
+        "hi": "क्या आप सुरक्षित हैं?"
+    },
+    "imSafe": {
+        "en": "I'm Safe",
+        "hi": "मैं सुरक्षित हूं"
+    },
+    "triggerSOS": {
+        "en": "Trigger SOS",
+        "hi": "SOS भेजें"
+    },
+    "sosActive": {
+        "en": "SOS ACTIVE",
+        "hi": "SOS सक्रिय"
+    },
+    "sosButton": {
+        "en": "SOS",
+        "hi": "SOS"
+    },
+    "emergencyAlertSent": {
+        "en": "Emergency Alert Sent",
+        "hi": "आपातकालीन अलर्ट भेजा गया"
+    },
+    "guardianLogin": {
+        "en": "Guardian Login",
+        "hi": "अभिभावक लॉगिन"
+    },
+    "email": {
+        "en": "Email",
+        "hi": "ईमेल"
+    },
+    "password": {
+        "en": "Password",
+        "hi": "पासवर्ड"
+    },
+    "login": {
+        "en": "Login",
+        "hi": "लॉगिन"
+    },
+    "trackedUsers": {
+        "en": "Tracked Users",
+        "hi": "ट्रैक किए गए उपयोगकर्ता"
+    },
+    "liveSharing": {
+        "en": "Live Sharing",
+        "hi": "लाइव शेयरिंग"
+    },
+    "lastUpdated": {
+        "en": "Last Updated",
+        "hi": "अंतिम अपडेट"
+    },
+    "openLiveMap": {
+        "en": "Open Live Map",
+        "hi": "लाइव मैप खोलें"
+    },
+    "callUser": {
+        "en": "Call User",
+        "hi": "उपयोगकर्ता को कॉल करें"
+    },
+    "callPolice": {
+        "en": "Call Police",
+        "hi": "पुलिस को कॉल करें"
+    },
+    "shareLocation": {
+        "en": "Share Location",
+        "hi": "स्थान साझा करें"
+    },
+    "nearbyPolice": {
+        "en": "Nearby Police Stations",
+        "hi": "नज़दीकी पुलिस स्टेशन"
+    },
+    "nearbyHospitals": {
+        "en": "Nearby Hospitals",
+        "hi": "नज़दीकी अस्पताल"
+    },
+    "womenHelpCenters": {
+        "en": "Women Help Centers",
+        "hi": "महिला सहायता केंद्र"
+    },
+    "navigate": {
+        "en": "Navigate",
+        "hi": "नेविगेट करें"
+    },
+    "call": {
+        "en": "Call",
+        "hi": "कॉल करें"
+    },
+    "showRiskHeatmap": {
+        "en": "Show Risk Heatmap",
+        "hi": "जोखिम हीटमैप दिखाएं"
+    },
+    "riskScorePredictor": {
+        "en": "Risk Score Predictor",
+        "hi": "जोखिम स्कोर भविष्यवक्ता"
+    },
+    "riskLevel": {
+        "en": "Risk Level",
+        "hi": "जोखिम स्तर"
+    },
+    "low": {
+        "en": "Low",
+        "hi": "कम"
+    },
+    "medium": {
+        "en": "Medium",
+        "hi": "मध्यम"
+    },
+    "high": {
+        "en": "High",
+        "hi": "उच्च"
+    },
+    "confidence": {
+        "en": "Confidence",
+        "hi": "विश्वास"
+    },
+    "batteryLevel": {
+        "en": "Battery Level",
+        "hi": "बैटरी स्तर"
+    },
+    "charging": {
+        "en": "Charging",
+        "hi": "चार्जिंग"
+    },
+    "trackingMode": {
+        "en": "Tracking Mode",
+        "hi": "ट्रैकिंग मोड"
+    },
+    "normalTracking": {
+        "en": "Normal Tracking",
+        "hi": "सामान्य ट्रैकिंग"
+    },
+    "powerSaveTracking": {
+        "en": "Power Save Tracking",
+        "hi": "पावर सेव ट्रैकिंग"
+    },
+    "lowBatteryWarning": {
+        "en": "Low battery. Switching to power-save tracking.",
+        "hi": "कम बैटरी। पावर-सेव ट्रैकिंग पर स्विच हो रहा है।"
+    },
+    "periodTracker": {
+        "en": "Period Tracker",
+        "hi": "पीरियड ट्रैकर"
+    },
+    "lastPeriod": {
+        "en": "Last Period",
+        "hi": "आखिरी पीरियड"
+    },
+    "cycleLength": {
+        "en": "Cycle Length",
+        "hi": "चक्र लंबाई"
+    },
+    "nextExpected": {
+        "en": "Next Expected",
+        "hi": "अगला अपेक्षित"
+    },
+    "days": {
+        "en": "days",
+        "hi": "दिन"
+    },
+    "createAccount": {
+        "en": "Create Account",
+        "hi": "खाता बनाएं"
+    },
+    "createAccountSubtitle": {
+        "en": "Sign up and add your guardians instantly",
+        "hi": "साइन अप करें और तुरंत अपने अभिभावकों को जोड़ें"
+    },
+    "yourDetails": {
+        "en": "Your Details",
+        "hi": "आपका विवरण"
+    },
+    "fullName": {
+        "en": "Full Name",
+        "hi": "पूरा नाम"
+    },
+    "emailAddress": {
+        "en": "Email Address",
+        "hi": "ईमेल पता"
+    },
+    "alreadyHaveAccount": {
+        "en": "Already have an account?",
+        "hi": "क्या आपके पास पहले से एक खाता मौजूद है?"
+    },
+    "loginInstead": {
+        "en": "Login Instead",
+        "hi": "इसके बजाय लॉगिन करें"
+    },
+    "addGuardians": {
+        "en": "Add Guardians (Max 5)",
+        "hi": "अभिभावक जोड़ें (अधिकतम 5)"
+    },
+    "guardianName": {
+        "en": "Guardian Name",
+        "hi": "अभिभावक का नाम"
+    },
+    "relation": {
+        "en": "Relation",
+        "hi": "संबंध"
+    },
+    "phone": {
+        "en": "Phone",
+        "hi": "फ़ोन"
+    },
+    "createAccountSendInvites": {
+        "en": "Create Account & Send Invites",
+        "hi": "खाता बनाएं और आमंत्रण भेजें"
+    },
+    "creatingAccount": {
+        "en": "Creating Account...",
+        "hi": "खाता बनाया जा रहा है..."
+    },
+    "accessSafetyDashboard": {
+        "en": "Access your safety dashboard",
+        "hi": "अपने सुरक्षा डैशबोर्ड तक पहुंचें"
+    },
+    "girlUser": {
+        "en": "Girl / User",
+        "hi": "लड़की / उपयोगकर्ता"
+    },
+    "accessCode": {
+        "en": "Access Code",
+        "hi": "एक्सेस कोड"
+    },
+    "enterCode": {
+        "en": "Enter 6-digit code",
+        "hi": "6 अंकों का कोड दर्ज करें"
+    },
+    "checkInviteForCode": {
+        "en": "Check your invitation for the code.",
+        "hi": "कोड के लिए अपने आमंत्रण की जाँच करें।"
+    },
+    "dontHaveAccount": {
+        "en": "Don't have an account?",
+        "hi": "कोई खाता नहीं है?"
+    },
+    "signupGirlsOnly": {
+        "en": "Sign up (Girls only)",
+        "hi": "साइन अप करें (केवल लड़कियां)"
+    },
+    "loggingIn": {
+        "en": "Logging in...",
+        "hi": "लॉग इन हो रहा है..."
+    },
+    "guardianActivation": {
+        "en": "Guardian Activation",
+        "hi": "अभिभावक सक्रियण"
+    },
+    "activatingCode": {
+        "en": "Activating your access code...",
+        "hi": "अपना एक्सेस कोड सक्रिय कर रहा है..."
+    },
+    "accountActivated": {
+        "en": "Account Activated!",
+        "hi": "खाता सक्रिय!"
+    },
+    "linkedSuccess": {
+        "en": "You have successfully linked with the user.",
+        "hi": "आप सफलतापूर्वक उपयोगकर्ता के साथ जुड़ गए हैं।"
+    },
+    "checkEmailForCode": {
+        "en": "Please check your email for your Access Code if you haven't already.",
+        "hi": "यदि आपने पहले से नहीं किया है तो कृपया अपने एक्सेस कोड के लिए अपना ईमेल देखें।"
+    },
+    "loginWithCode": {
+        "en": "Login with Code",
+        "hi": "कोड के साथ लॉगिन करें"
+    },
+    "invalidInviteLink": {
+        "en": "Invalid Invite Link",
+        "hi": "अमान्य आमंत्रण लिंक"
+    },
+    "goHome": {
+        "en": "Go Home",
+        "hi": "घर जाओ"
+    },
+    "status": {
+        "en": "Status",
+        "hi": "स्थिति"
+    },
+    "active": {
+        "en": "Active",
+        "hi": "सक्रिय"
+    },
+    "inactive": {
+        "en": "Inactive",
+        "hi": "निष्क्रिय"
+    },
+    "save": {
+        "en": "Save",
+        "hi": "सहेजें"
+    },
+    "cancel": {
+        "en": "Cancel",
+        "hi": "रद्द करें"
+    },
+    "delete": {
+        "en": "Delete",
+        "hi": "हटाएं"
+    },
+    "edit": {
+        "en": "Edit",
+        "hi": "संपादित करें"
+    },
+    "close": {
+        "en": "Close",
+        "hi": "बंद करें"
+    },
+    "notificationSettings": {
+        "en": "Notification Settings",
+        "hi": "सुचना सेटिंग्स"
+    },
+    "privacySecurity": {
+        "en": "Privacy & Security",
+        "hi": "गोपनीयता और सुरक्षा"
+    },
+    "appSettings": {
+        "en": "App Settings",
+        "hi": "ऐप सेटिंग्स"
+    },
+    "logOut": {
+        "en": "Log Out",
+        "hi": "लॉग आउट"
+    },
+    "user": {
+        "en": "User",
+        "hi": "उपयोगकर्ता"
+    },
+    "findHelpNearby": {
+        "en": "Find help nearby",
+        "hi": "आसपास मदद खोजें"
+    },
+    "locationAccessDenied": {
+        "en": "Location access denied. Please enable location services.",
+        "hi": "स्थान पहुंच अस्वीकृत। कृपया स्थान सेवाएं सक्षम करें।"
+    },
+    "geolocationNotSupported": {
+        "en": "Geolocation is not supported by this browser.",
+        "hi": "इस ब्राउज़र द्वारा जियोलोकेशन समर्थित नहीं है।"
+    },
+    "failedToFetchPlaces": {
+        "en": "Failed to fetch nearby places. Server might be busy.",
+        "hi": "नज़दीकी स्थानों को प्राप्त करने में विफल। सर्वर व्यस्त हो सकता है।"
+    },
+    "retry": {
+        "en": "Retry",
+        "hi": "पुनः प्रयास करें"
+    },
+    "enableLocationServices": {
+        "en": "Make sure location services are enabled.",
+        "hi": "सुनिश्चित करें कि स्थान सेवाएं सक्षम हैं।"
+    },
+    "noPlacesFound": {
+        "en": "No places found nearby.",
+        "hi": "आसपास कोई स्थान नहीं मिला।"
+    },
+    "backToDashboard": {
+        "en": "Back to Dashboard",
+        "hi": "डैशबोर्ड पर वापस जाएं"
+    },
+    "loadingTrackingData": {
+        "en": "Loading tracking data...",
+        "hi": "ट्रैकिंग डेटा लोड हो रहा है..."
+    },
+    "userNotFound": {
+        "en": "User not found or access denied.",
+        "hi": "उपयोगकर्ता नहीं मिला या पहुंच अस्वीकृत।"
+    },
+    "lastUpdate": {
+        "en": "Last update",
+        "hi": "अंतिम अपडेट"
+    },
+    "liveTracking": {
+        "en": "Live Tracking",
+        "hi": "लाइव ट्रैकिंग"
+    },
+    "stayed": {
+        "en": "Stayed",
+        "hi": "रुका हुआ"
+    },
+    "timeToArrival": {
+        "en": "Time to Arrival",
+        "hi": "आगमन का समय"
+    },
+    "destination": {
+        "en": "Destination",
+        "hi": "गंतव्य"
+    },
+    "startTime": {
+        "en": "Start Time",
+        "hi": "प्रारंभ समय"
+    },
+    "ringPhone": {
+        "en": "RING PHONE",
+        "hi": "फ़ोन बजाएं"
+    },
+    "emergencyActive": {
+        "en": "EMERGENCY ACTIVE",
+        "hi": "आपातकालीन सक्रिय"
+    },
+    "ensuringPrivacy": {
+        "en": "Ensuring privacy and safety. Tracking data is shared only with verified guardians.",
+        "hi": "गोपनीयता और सुरक्षा सुनिश्चित करना। ट्रैकिंग डेटा केवल सत्यापित अभिभावकों के साथ साझा किया जाता है।"
+    },
+    "viewSafeZones": {
+        "en": "View Safe Zones",
+        "hi": "सुरक्षित क्षेत्र देखें"
+    },
+    "welcome": {
+        "en": "Welcome",
+        "hi": "स्वागत है"
+    },
+    "userDashboard": {
+        "en": "User Dashboard",
+        "hi": "उपयोगकर्ता डैशबोर्ड"
+    },
+    "myGuardiansInvites": {
+        "en": "My Guardians & Invites",
+        "hi": "मेरे अभिभावक और आमंत्रण"
+    },
+    "shareInviteCodes": {
+        "en": "Share these codes with your guardians so they can track you.",
+        "hi": "ये कोड अपने अभिभावकों के साथ साझा करें ताकि वे आपको ट्रैक कर सकें।"
+    },
+    "mySOSHistory": {
+        "en": "My SOS History",
+        "hi": "मेरा SOS इतिहास"
+    },
+    "protectUser": {
+        "en": "Protect a User",
+        "hi": "एक उपयोगकर्ता की सुरक्षा करें"
+    },
+    "enterInviteCodeDesc": {
+        "en": "Enter the 6-digit invite code shared by the user to start protecting them.",
+        "hi": "उपयोगकर्ता द्वारा साझा किया गया 6-अंकीय आमंत्रण कोड दर्ज करें।"
+    },
+    "myWards": {
+        "en": "My Wards (Users)",
+        "hi": "मेरे वार्ड (उपयोगकर्ता)"
+    },
+    "usersProtecting": {
+        "en": "Users you are currently protecting.",
+        "hi": "उपयोगकर्ता जिनकी आप वर्तमान में सुरक्षा कर रहे हैं।"
+    },
+    "enterInviteCode": {
+        "en": "Enter Invite Code",
+        "hi": "आमंत्रण कोड दर्ज करें"
+    },
+    "link": {
+        "en": "Link",
+        "hi": "लिंक"
+    },
+    "verifying": {
+        "en": "Verifying...",
+        "hi": "सत्यापन हो रहा है..."
+    },
+    "track": {
+        "en": "Track",
+        "hi": "ट्रैक"
+    },
+    "liveTravelModeActive": {
+        "en": "Live Travel Mode Active",
+        "hi": "लाइव यात्रा मोड सक्रिय"
+    },
+    "userDelayed": {
+        "en": "USER DELAYED",
+        "hi": "उपयोगकर्ता विलंबित"
+    },
+    "userTravelling": {
+        "en": "User is Travelling",
+        "hi": "उपयोगकर्ता यात्रा कर रहा है"
+    },
+    "late": {
+        "en": "LATE",
+        "hi": "देर"
+    },
+    "calculating": {
+        "en": "Calculating...",
+        "hi": "गणना हो रही है..."
+    },
+    "recentActivity": {
+        "en": "Recent Activity",
+        "hi": "हाल की गतिविधि"
+    },
+    "viewStartLocation": {
+        "en": "View Start Location",
+        "hi": "प्रारंभ स्थान देखें"
+    },
+    "noEmergencyHistory": {
+        "en": "No emergency history found.",
+        "hi": "कोई आपातकालीन इतिहास नहीं मिला।"
+    },
+    "noUsersLinked": {
+        "en": "No users linked yet.",
+        "hi": "अभी तक कोई उपयोगकर्ता जुड़ा नहीं है।"
+    },
+    "enterInviteToStart": {
+        "en": "Enter an invite code to get started.",
+        "hi": "शुरू करने के लिए आमंत्रण कोड दर्ज करें।"
+    },
+    "linked": {
+        "en": "Linked",
+        "hi": "जुड़ा हुआ"
+    },
+    "pending": {
+        "en": "Pending",
+        "hi": "लंबित"
+    },
+    "unknown": {
+        "en": "UNKNOWN",
+        "hi": "अज्ञात"
+    }
+}
