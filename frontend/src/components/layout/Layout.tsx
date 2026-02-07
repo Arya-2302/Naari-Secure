@@ -16,7 +16,6 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <MobileNav />
-      <MobileNav />
       <SOSButton />
       <FakeCallOverlay />
     </div>

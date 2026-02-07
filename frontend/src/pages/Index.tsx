@@ -226,7 +226,7 @@ const Index = () => {
 
         {/* --- GIRL DASHBOARD --- */}
         {user?.role === 'girl' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
             {/* Emergency Contacts / Invite Codes */}
             <Card>
               <CardHeader>
