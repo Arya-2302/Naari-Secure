@@ -30,8 +30,8 @@ const Index = () => {
     if (!isSosActive) {
       activateSOS();
       toast({
-        title: "VOICE SOS ACTIVATED!",
-        description: "Emergency command heard. Notifying guardians...",
+        title: t('voiceProtectionOn'),
+        description: t('voiceHelpDescription'),
         variant: "destructive"
       });
     }
@@ -122,14 +122,14 @@ const Index = () => {
       const data = await res.json();
 
       if (res.ok) {
-        toast({ title: "Success", description: `You remain now protecting ${data.linkedUser}` });
+        toast({ title: t('success'), description: `${t('protectingUser')} ${data.linkedUser}` });
         setInviteCode('');
         fetchWards();
       } else {
-        toast({ variant: "destructive", title: "Failed", description: data.message });
+        toast({ variant: "destructive", title: t('failed'), description: data.message });
       }
     } catch (error) {
-      toast({ variant: "destructive", title: "Error", description: "Something went wrong" });
+      toast({ variant: "destructive", title: t('error'), description: t('somethingWentWrong') });
     } finally {
       setLoading(false);
     }
@@ -149,8 +149,8 @@ const Index = () => {
         {user?.role === 'guardian' && wards.some(ward => ward.sosActive) && (
           <div className="mb-12 space-y-4 animate-pulse">
             {wards.filter(ward => ward.sosActive).map((ward) => (
-              <Card key={ward._id} className="border-red-500 bg-red-50 shadow-xl overflow-hidden">
-                <div className="bg-red-600 px-6 py-3 flex items-center justify-between text-white">
+              <Card key={ward._id} className="border-red-500 bg-red-50 shadow-xl">
+                <div className="bg-red-600 px-6 py-3 rounded-t-xl flex items-center justify-between text-white">
                   <div className="flex items-center gap-2">
                     <Bell className="w-6 h-6 animate-bounce" />
                     <h2 className="text-xl font-black uppercase tracking-widest">{t('emergencyActive')}</h2>
@@ -164,7 +164,7 @@ const Index = () => {
                       )}
                     >
                       {isAudioEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                      {isAudioEnabled ? "SOUND ON" : "SOUND OFF"}
+                      {isAudioEnabled ? t('soundOn') : t('soundOff')}
                     </button>
                     <span className="text-sm font-bold bg-white/20 px-3 py-1 rounded-full">{t('sosActive')}</span>
                   </div>
@@ -172,17 +172,17 @@ const Index = () => {
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row gap-8 items-center">
                     <div className="flex-1 space-y-2 text-center md:text-left">
-                      <h3 className="text-3xl font-bold text-red-700">{ward.name} is in danger!</h3>
-                      <p className="text-lg text-red-600 font-medium tracking-tight">Immediate assistance required. Live location sharing is active.</p>
+                      <h3 className="text-3xl font-bold text-red-700">{ward.name} {t('isDanger')}</h3>
+                      <p className="text-lg text-red-600 font-medium tracking-tight">{t('immediateAssistance')}</p>
 
                       {ward.currentSOSAudioFile && (
-                        <div className="mt-4 p-4 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center gap-4 border border-white/30 animate-pulse max-w-md">
-                          <Volume2 className="w-6 h-6 text-white" />
+                        <div className="mt-4 p-4 bg-white/60 backdrop-blur-sm rounded-2xl flex items-center gap-4 border border-red-200 animate-pulse max-w-md shadow-inner">
+                          <Volume2 className="w-6 h-6 text-red-600" />
                           <div className="flex-1">
-                            <p className="text-[10px] font-black text-white/80 uppercase tracking-widest mb-1">Live Environment Audio</p>
+                            <p className="text-[10px] font-black text-red-700 uppercase tracking-widest mb-1 opacity-80">{t('liveEnvAudio')}</p>
                             <audio
                               controls
-                              className="h-8 w-full filter invert brightness-200"
+                              className="h-8 w-full filter brightness-90 saturate-150"
                               src={`http://localhost:5001/uploads/audio/${ward.currentSOSAudioFile}`}
                             />
                           </div>
@@ -203,7 +203,7 @@ const Index = () => {
                         className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-2xl font-black text-lg transition-all shadow-lg hover:shadow-green-500/50"
                       >
                         <Zap className="w-6 h-6" />
-                        WHATSAPP CALL
+                        {t('whatsappCall')}
                       </a>
                       {ward.lastLocation && (
                         <a
@@ -213,7 +213,7 @@ const Index = () => {
                           className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white border-2 border-red-200 hover:border-red-400 text-red-600 px-8 py-4 rounded-2xl font-black text-lg transition-all shadow-md"
                         >
                           <MapPin className="w-6 h-6" />
-                          LIVE LOCATION
+                          {t('liveLocationLabel')}
                         </a>
                       )}
                     </div>
@@ -253,7 +253,7 @@ const Index = () => {
                           </span>
                         ) : (
                           <div className="bg-white px-2 py-1 border rounded text-sm font-mono tracking-wider">
-                            Code: <span className="font-bold text-primary">{contact.inviteCode}</span>
+                            {t('code')}: <span className="font-bold text-primary">{contact.inviteCode}</span>
                           </div>
                         )}
                         <p className="text-[10px] uppercase text-muted-foreground mt-1">
@@ -288,7 +288,7 @@ const Index = () => {
                   <Phone className="w-7 h-7" />
                   <div className="text-left">
                     <p className="text-[10px] font-black uppercase tracking-widest leading-none opacity-70">Security</p>
-                    <p className="text-lg font-bold">Fake Call</p>
+                    <p className="text-lg font-bold">{t('fakeCall') || 'Fake Call'}</p>
                   </div>
                 </button>
 
@@ -297,8 +297,8 @@ const Index = () => {
                   onClick={() => {
                     setVoiceEnabled(!voiceEnabled);
                     toast({
-                      title: !voiceEnabled ? "Voice Protection ON" : "Voice Protection OFF",
-                      description: !voiceEnabled ? "Just say 'HELP' or 'BACHAO' to trigger SOS" : "Voice commands disabled",
+                      title: !voiceEnabled ? t('voiceProtectionOn') : t('voiceProtectionOff'),
+                      description: !voiceEnabled ? t('voiceHelpDescription') : t('voiceDisabledDescription'),
                     });
                   }}
                   className={cn(
@@ -311,7 +311,7 @@ const Index = () => {
                   {voiceEnabled ? <Mic className="w-7 h-7" /> : <MicOff className="w-7 h-7 opacity-50" />}
                   <div className="text-left">
                     <p className="text-[10px] font-black uppercase tracking-widest leading-none opacity-70">Voice SOS</p>
-                    <p className="text-lg font-bold">{voiceEnabled ? "ACTIVE" : "ENABLE"}</p>
+                    <p className="text-lg font-bold">{voiceEnabled ? t('active').toUpperCase() : t('enable') || 'ENABLE'}</p>
                   </div>
                 </button>
               </div>
@@ -328,7 +328,7 @@ const Index = () => {
                   <ActivityHistory className="w-5 h-5 text-primary" />
                   {t('mySOSHistory')}
                 </CardTitle>
-                <CardDescription>Comprehensive record of all emergency triggers and locations.</CardDescription>
+                <CardDescription>{t('compHistoryDesc')}</CardDescription>
               </CardHeader>
               <CardContent>
                 {userData?.sosHistory?.length > 0 ? (
@@ -368,7 +368,7 @@ const Index = () => {
                   <div className="text-center py-12 text-muted-foreground bg-gray-50/50 rounded-2xl border border-dashed">
                     <Clock className="w-12 h-12 mx-auto mb-3 opacity-20" />
                     <p className="text-lg font-medium">{t('noEmergencyHistory')}</p>
-                    <p className="text-sm opacity-70">Your emergency history will appear here once an SOS is triggered.</p>
+                    <p className="text-sm opacity-70">{t('historyEmptyDesc') || 'Your emergency history will appear here once an SOS is triggered.'}</p>
                   </div>
                 )}
               </CardContent>
@@ -392,7 +392,7 @@ const Index = () => {
                     )}
                   >
                     {isAudioEnabled ? <Volume2 className="w-3 h-3" /> : <VolumeX className="w-3 h-3" />}
-                    {isAudioEnabled ? "SOUND ENABLED" : "ENABLE SOS SOUND"}
+                    {isAudioEnabled ? t('soundEnabled') : t('enableSosSound')}
                   </button>
                   <CardDescription>{t('usersProtecting')}</CardDescription>
                 </div>
@@ -416,7 +416,7 @@ const Index = () => {
                             <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest">{t('liveTravelModeActive')}</span>
                             {ward.travelMode?.isNightMode && (
                               <span className="flex items-center gap-1.5 px-2 py-0.5 bg-indigo-950 text-yellow-300 text-[10px] font-black uppercase rounded-full border border-indigo-700 ml-auto">
-                                <Moon className="w-3 h-3" /> Night Mode
+                                <Moon className="w-3 h-3" /> {t('night')}
                               </span>
                             )}
                           </div>
@@ -441,7 +441,7 @@ const Index = () => {
                               <p className="text-sm font-medium text-muted-foreground">{ward.email}</p>
                             </div>
                           </div>
-                          <Link to={`/track/${ward._id}`} className="ml-auto">
+                          <Link to="/safe-zones" className="ml-auto">
                             <Button size="lg" className="px-8 font-bold shadow-lg shadow-primary/20">{t('track')}</Button>
                           </Link>
                         </div>
@@ -484,25 +484,29 @@ const Index = () => {
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1">
                               <ActivityHistory className="w-3 h-3" /> {t('recentActivity')}
                             </p>
-                            <div className="space-y-2">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                               {ward.sosHistory.slice().reverse().map((history: any, hIdx: number) => (
-                                <div key={hIdx} className="p-3 border rounded-xl bg-white space-y-2">
+                                <div key={hIdx} className="p-4 border rounded-2xl bg-gray-50/50 space-y-3 hover:border-primary/30 transition-all hover:bg-white hover:shadow-md">
                                   <div className="flex justify-between items-start">
                                     <div>
-                                      <p className="text-[11px] font-bold text-gray-900">{new Date(history.startTime).toLocaleDateString()}</p>
-                                      <p className="text-[10px] text-muted-foreground">{new Date(history.startTime).toLocaleTimeString()} - {new Date(history.endTime).toLocaleTimeString()}</p>
+                                      <p className="text-[12px] font-bold text-gray-900">{new Date(history.startTime).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}</p>
+                                      <p className="text-[10px] text-muted-foreground font-medium mt-1">
+                                        {new Date(history.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                        {" → "}
+                                        {new Date(history.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                      </p>
                                     </div>
-                                    <span className="px-2 py-0.5 rounded-full bg-red-100 text-red-600 text-[9px] font-black uppercase">
+                                    <span className="px-2 py-0.5 rounded-full bg-red-50 text-red-600 text-[9px] font-black uppercase tracking-wider">
                                       {history.duration}
                                     </span>
                                   </div>
-                                  <div className="flex items-center justify-between mt-1">
+                                  <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                                     {history.startLocation && (
                                       <a
                                         href={`https://www.google.com/maps?q=${history.startLocation.lat},${history.startLocation.lng}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-[10px] text-primary hover:underline flex items-center gap-1 font-bold"
+                                        className="text-[10px] text-primary font-bold hover:underline flex items-center gap-1"
                                       >
                                         <MapPin className="w-3 h-3" /> {t('viewStartLocation')}
                                       </a>
@@ -513,10 +517,10 @@ const Index = () => {
                                           const audio = new Audio(`http://localhost:5001/uploads/audio/${history.audioFile}`);
                                           audio.play().catch(e => console.error("History audio play failed", e));
                                         }}
-                                        className="p-1 px-2 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors flex items-center gap-1 text-[10px] font-bold"
+                                        className="p-1 px-2 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors flex items-center gap-1 text-[9px] font-black uppercase italic"
                                         title="Play Recording"
                                       >
-                                        <Volume2 className="w-3 h-3" /> AUDIO
+                                        <Volume2 className="w-3 h-3" /> {t('audio')}
                                       </button>
                                     )}
                                   </div>

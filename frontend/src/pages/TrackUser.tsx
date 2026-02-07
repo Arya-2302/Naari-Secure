@@ -31,8 +31,9 @@ function MapAutoCenter({ center }: { center: [number, number] }) {
     return null;
 }
 
-const TrackUser = () => {
-    const { id } = useParams();
+const TrackUser = ({ id: propId }: { id?: string }) => {
+    const { id: paramId } = useParams();
+    const id = propId || paramId;
     const navigate = useNavigate();
     const { token } = useAuth();
     const { t } = useLanguage();
@@ -118,45 +119,149 @@ const TrackUser = () => {
                 </button>
 
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                    {/* Main Map */}
-                    <Card className="lg:col-span-3 overflow-hidden border-2 shadow-lg h-[500px] lg:h-[80vh] relative z-0">
-                        {ward.travelMode?.isActive ? (
-                            <LiveRouteMap
-                                currentPos={{ lat: lastPos[0], lng: lastPos[1] }}
-                                destinationPos={ward.travelMode.destinationCoords}
-                            />
-                        ) : (
-                            <MapContainer
-                                // @ts-ignore
-                                center={lastPos}
-                                zoom={15}
-                                style={{ height: '100%', width: '100%' }}
-                                // @ts-ignore
-                                zoomControl={false}
-                            >
-                                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                                <MapAutoCenter center={lastPos} />
-
-                                {routePoints.length > 1 && (
+                    {/* Main Map & History Section */}
+                    <div className="lg:col-span-3 space-y-6">
+                        <Card className="overflow-hidden border-2 shadow-lg h-[500px] lg:h-[65vh] relative z-0">
+                            {ward.travelMode?.isActive ? (
+                                <LiveRouteMap
+                                    currentPos={{ lat: lastPos[0], lng: lastPos[1] }}
+                                    destinationPos={ward.travelMode.destinationCoords}
+                                />
+                            ) : (
+                                <MapContainer
                                     // @ts-ignore
-                                    <Polyline positions={routePoints} color="#3b82f6" weight={5} opacity={0.7} />
-                                )}
+                                    center={lastPos}
+                                    zoom={15}
+                                    style={{ height: '100%', width: '100%' }}
+                                    // @ts-ignore
+                                    zoomControl={false}
+                                >
+                                    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                                    <MapAutoCenter center={lastPos} />
 
-                                <Marker position={lastPos}>
-                                    <Popup>
-                                        <div className="text-center font-bold">
-                                            {ward.name}<br />
-                                            <span className="text-xs font-normal text-muted-foreground">
-                                                {t('lastUpdated')}: {ward.lastLocation ? format(new Date(ward.lastLocation.timestamp), 'h:mm:ss a') : 'Unknown'}
-                                            </span>
-                                        </div>
-                                    </Popup>
-                                </Marker>
-                            </MapContainer>
-                        )}
-                    </Card>
+                                    {routePoints.length > 1 && (
+                                        // @ts-ignore
+                                        <Polyline positions={routePoints} color="#3b82f6" weight={5} opacity={0.7} />
+                                    )}
 
-                    {/* User Details & Tracking Card */}
+                                    <Marker position={lastPos}>
+                                        <Popup>
+                                            <div className="text-center font-bold">
+                                                {ward.name}<br />
+                                                <span className="text-xs font-normal text-muted-foreground">
+                                                    {t('lastUpdated')}: {ward.lastLocation ? format(new Date(ward.lastLocation.timestamp), 'h:mm:ss a') : 'Unknown'}
+                                                </span>
+                                            </div>
+                                        </Popup>
+                                    </Marker>
+                                </MapContainer>
+                            )}
+                        </Card>
+
+                        {/* Side-by-Side Cards (History & Logs) */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                            {/* Travel History Card */}
+                            <Card className="border-2 shadow-md">
+                                <CardHeader className="bg-primary/5 border-b py-4">
+                                    <CardTitle className="text-sm font-bold flex items-center gap-2">
+                                        <Clock className="w-4 h-4 text-primary" />
+                                        {t('travelHistory') || 'Travel History'}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-4 space-y-3">
+                                    {ward.travelHistory && ward.travelHistory.length > 0 ? (
+                                        ward.travelHistory.slice().reverse().slice(0, 10).map((trip: any, idx: number) => (
+                                            <div key={idx} className="p-3 bg-gray-50 rounded-lg border flex justify-between items-center text-xs">
+                                                <div className="flex-1 min-w-0 pr-2">
+                                                    <p className="font-bold text-foreground truncate">{trip.destination}</p>
+                                                    <p className="text-[10px] text-muted-foreground mt-0.5">
+                                                        <span className="font-semibold text-gray-700">Reached: </span>
+                                                        {format(new Date(trip.endTime), 'h:mm a • MMM d')}
+                                                    </p>
+                                                </div>
+                                                <div className="flex flex-col items-end gap-1 shrink-0">
+                                                    {trip.status === 'sos' ? (
+                                                        <span className="px-1.5 py-0.5 bg-red-600 text-white text-[8px] font-black rounded-full uppercase animate-pulse">
+                                                            SOS
+                                                        </span>
+                                                    ) : (
+                                                        <span className={cn(
+                                                            "px-1.5 py-0.5 text-[8px] font-bold rounded-full uppercase",
+                                                            trip.status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
+                                                        )}>
+                                                            {trip.status === 'completed' ? t('arrivedSafely') : trip.status}
+                                                        </span>
+                                                    )}
+                                                    {trip.delayed && (
+                                                        <span className="text-[8px] text-orange-600 font-bold flex items-center gap-0.5">
+                                                            <Clock className="w-2 h-2" /> DELAYED
+                                                        </span>
+                                                    )}
+                                                    {trip.audioFile && (
+                                                        <button
+                                                            onClick={() => {
+                                                                const audio = new Audio(`http://localhost:5001/uploads/audio/${trip.audioFile}`);
+                                                                audio.play().catch(e => console.error("History audio play failed", e));
+                                                            }}
+                                                            className="mt-1 p-1 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors"
+                                                            title="Play Recording"
+                                                        >
+                                                            <Volume2 className="w-3 h-3" />
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p className="text-xs text-center py-4 text-muted-foreground">No recent travel history.</p>
+                                    )}
+                                </CardContent>
+                            </Card>
+
+                            {/* Emergency Logs Card */}
+                            <Card className="border-2 border-red-100 shadow-md">
+                                <CardHeader className="bg-red-50 border-b py-4">
+                                    <CardTitle className="text-sm font-bold flex items-center gap-2 text-red-700">
+                                        <Shield className="w-4 h-4" />
+                                        {t('emergencyLogs') || 'Emergency Logs'}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-4 space-y-3">
+                                    {ward.sosHistory && ward.sosHistory.length > 0 ? (
+                                        ward.sosHistory.slice().reverse().slice(0, 10).map((log: any, idx: number) => (
+                                            <div key={idx} className="p-3 bg-red-50/30 rounded-lg border border-red-100 flex justify-between items-center text-xs">
+                                                <div className="flex-1 min-w-0 pr-2">
+                                                    <p className="font-bold text-red-900 uppercase tracking-tight">{t('sosTriggered') || 'SOS TRIGGERED'}</p>
+                                                    <p className="text-[10px] text-red-700 mt-0.5">
+                                                        {format(new Date(log.startTime), 'MMM d, h:mm a')}
+                                                        {log.duration && ` • Duration: ${log.duration}`}
+                                                    </p>
+                                                </div>
+                                                <div className="shrink-0">
+                                                    {log.audioFile && (
+                                                        <button
+                                                            onClick={() => {
+                                                                const audio = new Audio(`http://localhost:5001/uploads/audio/${log.audioFile}`);
+                                                                audio.play().catch(e => console.error("SOS log audio play failed", e));
+                                                            }}
+                                                            className="p-1.5 bg-red-600 rounded-full text-white hover:bg-red-700 transition-colors shadow-sm"
+                                                            title="Play Recording"
+                                                        >
+                                                            <Volume2 className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p className="text-xs text-center py-4 text-muted-foreground">No emergency logs recorded.</p>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+
+                    {/* User Details & Tracking Card Sidebar */}
                     <div className="space-y-6">
                         <Card className="border-2 shadow-md">
                             <CardHeader className="bg-primary/5 border-b">
@@ -291,105 +396,6 @@ const TrackUser = () => {
                             <CardContent className="p-4 flex items-center gap-3 text-xs text-muted-foreground">
                                 <Shield className="w-4 h-4 text-primary" />
                                 <p>{t('ensuringPrivacy')}</p>
-                            </CardContent>
-                        </Card>
-
-                        {/* Travel History Card */}
-                        <Card className="border-2 shadow-md">
-                            <CardHeader className="bg-primary/5 border-b py-4">
-                                <CardTitle className="text-sm font-bold flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-primary" />
-                                    {t('travelHistory') || 'Travel History'}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 space-y-3 max-h-[400px] overflow-y-auto">
-                                {ward.travelHistory && ward.travelHistory.length > 0 ? (
-                                    ward.travelHistory.slice().reverse().slice(0, 10).map((trip: any, idx: number) => (
-                                        <div key={idx} className="p-3 bg-gray-50 rounded-lg border flex justify-between items-center text-xs">
-                                            <div className="flex-1 min-w-0 pr-2">
-                                                <p className="font-bold text-foreground truncate">{trip.destination}</p>
-                                                <p className="text-[10px] text-muted-foreground mt-0.5">
-                                                    <span className="font-semibold text-gray-700">Reached: </span>
-                                                    {format(new Date(trip.endTime), 'h:mm a • MMM d')}
-                                                </p>
-                                            </div>
-                                            <div className="flex flex-col items-end gap-1 shrink-0">
-                                                {trip.status === 'sos' ? (
-                                                    <span className="px-1.5 py-0.5 bg-red-600 text-white text-[8px] font-black rounded-full uppercase animate-pulse">
-                                                        SOS
-                                                    </span>
-                                                ) : (
-                                                    <span className={cn(
-                                                        "px-1.5 py-0.5 text-[8px] font-bold rounded-full uppercase",
-                                                        trip.status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
-                                                    )}>
-                                                        {trip.status === 'completed' ? t('arrivedSafely') || 'Safe' : trip.status}
-                                                    </span>
-                                                )}
-                                                {trip.delayed && (
-                                                    <span className="text-[8px] text-orange-600 font-bold flex items-center gap-0.5">
-                                                        <Clock className="w-2 h-2" /> DELAYED
-                                                    </span>
-                                                )}
-                                                {trip.audioFile && (
-                                                    <button
-                                                        onClick={() => {
-                                                            const audio = new Audio(`http://localhost:5001/uploads/audio/${trip.audioFile}`);
-                                                            audio.play().catch(e => console.error("History audio play failed", e));
-                                                        }}
-                                                        className="mt-1 p-1 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors"
-                                                        title="Play Recording"
-                                                    >
-                                                        <Volume2 className="w-3 h-3" />
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <p className="text-xs text-center py-4 text-muted-foreground">No recent travel history.</p>
-                                )}
-                            </CardContent>
-                        </Card>
-
-                        {/* Emergency Logs Card */}
-                        <Card className="border-2 border-red-100 shadow-md">
-                            <CardHeader className="bg-red-50 border-b py-4">
-                                <CardTitle className="text-sm font-bold flex items-center gap-2 text-red-700">
-                                    <Shield className="w-4 h-4" />
-                                    {t('emergencyLogs') || 'Emergency Logs'}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 space-y-3 max-h-[300px] overflow-y-auto">
-                                {ward.sosHistory && ward.sosHistory.length > 0 ? (
-                                    ward.sosHistory.slice().reverse().slice(0, 10).map((log: any, idx: number) => (
-                                        <div key={idx} className="p-3 bg-red-50/30 rounded-lg border border-red-100 flex justify-between items-center text-xs">
-                                            <div className="flex-1 min-w-0 pr-2">
-                                                <p className="font-bold text-red-900 uppercase tracking-tight">SOS TRIGGERED</p>
-                                                <p className="text-[10px] text-red-700 mt-0.5">
-                                                    {format(new Date(log.startTime), 'MMM d, h:mm a')}
-                                                    {log.duration && ` • Duration: ${log.duration}`}
-                                                </p>
-                                            </div>
-                                            <div className="shrink-0">
-                                                {log.audioFile && (
-                                                    <button
-                                                        onClick={() => {
-                                                            const audio = new Audio(`http://localhost:5001/uploads/audio/${log.audioFile}`);
-                                                            audio.play().catch(e => console.error("SOS log audio play failed", e));
-                                                        }}
-                                                        className="p-1.5 bg-red-600 rounded-full text-white hover:bg-red-700 transition-colors shadow-sm"
-                                                        title="Play Recording"
-                                                    >
-                                                        <Volume2 className="w-4 h-4" />
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <p className="text-xs text-center py-4 text-muted-foreground">No emergency logs recorded.</p>
-                                )}
                             </CardContent>
                         </Card>
                     </div>

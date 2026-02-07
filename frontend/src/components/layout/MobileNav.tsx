@@ -13,7 +13,7 @@ const MobileNav = () => {
   const navItems = [
     { icon: Home, label: t('home'), path: '/' },
     { icon: Navigation, label: t('travel'), path: '/travel', hidden: user?.role === 'guardian' },
-    { icon: Shield, label: t('safeZones'), path: '/safe-zones' },
+    { icon: Shield, label: user?.role === 'guardian' ? t('track') : t('safeZones'), path: '/safe-zones' },
 
     { icon: User, label: t('profile'), path: '/profile' },
   ].filter(item => !item.hidden);

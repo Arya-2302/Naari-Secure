@@ -189,7 +189,7 @@ const Travel = () => {
     <div className="elevated-card p-6">
       <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
         <Clock className="w-5 h-5 text-primary" />
-        Travel History
+        {t('travelHistory')}
       </h3>
       <div className="space-y-3">
         {travelHistory && travelHistory.length > 0 ? (
@@ -212,7 +212,7 @@ const Travel = () => {
                 ) : (
                   <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full uppercase ${trip.status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
                     }`}>
-                    {trip.status === 'completed' ? 'Arrived Safely' : trip.status}
+                    {trip.status === 'completed' ? t('arrivedSafely') : trip.status}
                   </span>
                 )}
                 {trip.delayed && (
@@ -260,7 +260,7 @@ const Travel = () => {
 
         <div className="mb-6 text-center">
           <h1 className="text-2xl font-bold text-foreground mb-1">{t('travelMode')}</h1>
-          <p className="text-sm text-muted-foreground">Stay safe on your journey</p>
+          <p className="text-sm text-muted-foreground">{t('staySafeOnJourney') || 'Stay safe on your journey'}</p>
         </div>
 
         {!isTravelModeOn ? (
@@ -272,8 +272,8 @@ const Travel = () => {
                     <Moon className="w-6 h-6 text-yellow-300 animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg">Night Travel Mode Active</h3>
-                    <p className="text-indigo-200 text-sm">Enhanced safety protocols engaged. Regular check-ins enabled.</p>
+                    <h3 className="text-white font-bold text-lg">{t('nightTravelModeActive')}</h3>
+                    <p className="text-indigo-200 text-sm">{t('nightTravelDescription')}</p>
                   </div>
                 </div>
               </div>
@@ -287,7 +287,7 @@ const Travel = () => {
                   </div>
                   <div>
                     <h2 className="text-lg font-semibold text-foreground">{t('travelModeOff')}</h2>
-                    <p className="text-sm text-muted-foreground">Select destination to start</p>
+                    <p className="text-sm text-muted-foreground">{t('selectDestinationToStart')}</p>
                   </div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ const Travel = () => {
                     setPickingFor('custom');
                     setShowMapPicker(true);
                   }} className="text-xs text-primary font-bold flex items-center gap-1">
-                    <Plus className="w-3 h-3" /> Add New
+                    <Plus className="w-3 h-3" /> {t('addNew')}
                   </button>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -318,7 +318,7 @@ const Travel = () => {
                         >
                           <MapPin className={cn('w-6 h-6 mb-2', isSelected ? 'text-primary' : 'text-muted-foreground')} />
                           <p className="font-medium text-foreground truncate">{place.name}</p>
-                          <p className="text-xs text-muted-foreground truncate">{calculateETA(place.lat, place.lng)} min (ETA)</p>
+                          <p className="text-xs text-muted-foreground truncate">{calculateETA(place.lat, place.lng)} {t('minEta')}</p>
                         </button>
                         <button
                           onClick={(e) => {
@@ -353,8 +353,8 @@ const Travel = () => {
                     )}
                   >
                     <Clock className={cn('w-6 h-6 mb-2', selectedDest === 'custom' ? 'text-primary' : 'text-muted-foreground')} />
-                    <p className="font-medium text-foreground">One-time Trip</p>
-                    <p className="text-xs text-muted-foreground">Select on Map</p>
+                    <p className="font-medium text-foreground">{t('oneTimeTrip')}</p>
+                    <p className="text-xs text-muted-foreground">{t('selectOnMap')}</p>
                   </button>
                 </div>
               </div>
@@ -436,7 +436,7 @@ const Travel = () => {
                   <div className="p-4 bg-blue-50 rounded-xl border border-blue-100">
                     <label className="text-sm font-bold text-blue-900 block mb-1">
                       <Clock className="w-4 h-4 inline mr-2" />
-                      Estimated Time
+                      {t('estimatedTime')}
                     </label>
                     <div className="flex items-center gap-2">
                       <input

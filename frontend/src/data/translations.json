@@ -20,8 +20,8 @@
         "hi": "प्रोफ़ाइल"
     },
     "features": {
-        "en": "Features",
-        "hi": "विशेषताएं"
+        "en": "Travel Mode",
+        "hi": "यात्रा मोड"
     },
     "guardianPortal": {
         "en": "Guardian Portal",
@@ -634,5 +634,157 @@
     "unknown": {
         "en": "UNKNOWN",
         "hi": "अज्ञात"
+    },
+    "emergencyLogs": {
+        "en": "Emergency Logs",
+        "hi": "आपातकालीन लॉग"
+    },
+    "soundOn": {
+        "en": "SOUND ON",
+        "hi": "ध्वनि चालू"
+    },
+    "soundOff": {
+        "en": "SOUND OFF",
+        "hi": "ध्वनि बंद"
+    },
+    "soundEnabled": {
+        "en": "SOUND ENABLED",
+        "hi": "ध्वनि सक्षम"
+    },
+    "enableSosSound": {
+        "en": "ENABLE SOS SOUND",
+        "hi": "SOS ध्वनि सक्षम करें"
+    },
+    "criticalAlert": {
+        "en": "CRITICAL ALERT",
+        "hi": "गंभीर अलर्ट"
+    },
+    "success": {
+        "en": "Success",
+        "hi": "सफलता"
+    },
+    "failed": {
+        "en": "Failed",
+        "hi": "विफल"
+    },
+    "error": {
+        "en": "Error",
+        "hi": "त्रुटि"
+    },
+    "loginSuccessful": {
+        "en": "Login Successful",
+        "hi": "लॉगिन सफल"
+    },
+    "welcomeBack": {
+        "en": "Welcome back!",
+        "hi": "वापसी पर स्वागत है!"
+    },
+    "invalidCredentials": {
+        "en": "Invalid credentials",
+        "hi": "अमान्य क्रेडेंशियल"
+    },
+    "somethingWentWrong": {
+        "en": "Something went wrong. Please try again.",
+        "hi": "कुछ गलत हो गया। कृपया पुन: प्रयास करें।"
+    },
+    "voiceProtectionOn": {
+        "en": "Voice Protection ON",
+        "hi": "वॉयस प्रोटेक्शन चालू"
+    },
+    "voiceProtectionOff": {
+        "en": "Voice Protection OFF",
+        "hi": "वॉयस प्रोटेक्शन बंद"
+    },
+    "voiceHelpDescription": {
+        "en": "Just say 'HELP' or 'BACHAO' to trigger SOS",
+        "hi": "SOS ट्रिगर करने के लिए बस 'HELP' या 'बचाओ' कहें"
+    },
+    "voiceDisabledDescription": {
+        "en": "Voice commands disabled",
+        "hi": "वॉयस कमांड अक्षम"
+    },
+    "nightTravelModeActive": {
+        "en": "Night Travel Mode Active",
+        "hi": "नाइट यात्रा मोड सक्रिय"
+    },
+    "nightTravelDescription": {
+        "en": "Enhanced safety protocols engaged. Regular check-ins enabled.",
+        "hi": "उन्नत सुरक्षा प्रोटोकॉल सक्रिय। नियमित चेक-इन सक्षम।"
+    },
+    "selectDestinationToStart": {
+        "en": "Select destination to start",
+        "hi": "शुरू करने के लिए गंतव्य चुनें"
+    },
+    "addNew": {
+        "en": "Add New",
+        "hi": "नया जोड़ें"
+    },
+    "minEta": {
+        "en": "min (ETA)",
+        "hi": "मिनट (ETA)"
+    },
+    "oneTimeTrip": {
+        "en": "One-time Trip",
+        "hi": "एक बार की यात्रा"
+    },
+    "selectOnMap": {
+        "en": "Select on Map",
+        "hi": "मैप पर चुनें"
+    },
+    "selectedOnMap": {
+        "en": "Selected on Map",
+        "hi": "मैप पर चयनित"
+    },
+    "estimatedTime": {
+        "en": "Estimated Time",
+        "hi": "अनुमानित समय"
+    },
+    "isDanger": {
+        "en": "is in danger!",
+        "hi": "खतरे में है!"
+    },
+    "immediateAssistance": {
+        "en": "Immediate assistance required. Live location sharing is active.",
+        "hi": "तत्काल सहायता की आवश्यकता है। लाइव लोकेशन शेयरिंग सक्रिय है।"
+    },
+    "liveEnvAudio": {
+        "en": "Live Environment Audio",
+        "hi": "लाइव वातावरण ऑडियो"
+    },
+    "whatsappCall": {
+        "en": "WHATSAPP CALL",
+        "hi": "व्हाट्सएप कॉल"
+    },
+    "liveLocationLabel": {
+        "en": "LIVE LOCATION",
+        "hi": "लाइव लोकेशन"
+    },
+    "audio": {
+        "en": "AUDIO",
+        "hi": "ऑडियो"
+    },
+    "night": {
+        "en": "NIGHT",
+        "hi": "रात"
+    },
+    "recorded": {
+        "en": "Recorded",
+        "hi": "रिकॉर्ड किया गया"
+    },
+    "compHistoryDesc": {
+        "en": "Comprehensive record of all emergency triggers and locations.",
+        "hi": "सभी आपातकालीन ट्रिगर्स और स्थानों का विस्तृत रिकॉर्ड।"
+    },
+    "arrivedSafely": {
+        "en": "Arrived Safely",
+        "hi": "सुरक्षित पहुंचे"
+    },
+    "protectingUser": {
+        "en": "You are now protecting",
+        "hi": "अब आप सुरक्षा कर रहे हैं"
+    },
+    "code": {
+        "en": "Code",
+        "hi": "कोड"
     }
 }

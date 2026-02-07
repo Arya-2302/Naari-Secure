@@ -14,7 +14,7 @@ const DesktopNav = () => {
   const navItems = [
     { label: t('home'), path: '/' },
     { label: t('features'), path: '/travel', hidden: user?.role === 'guardian' },
-    { label: t('safeZones'), path: '/safe-zones' },
+    { label: user?.role === 'guardian' ? t('track') : t('safeZones'), path: '/safe-zones' },
 
     { label: t('profile'), path: '/profile' },
   ].filter(item => !item.hidden);
