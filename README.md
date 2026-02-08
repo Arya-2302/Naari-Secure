@@ -1,4 +1,4 @@
-# 🛡️ Naari Secure – Real-Time Women Safety Ecosystem
+#  Naari Secure – Real-Time Women Safety Ecosystem
 
 Naari Secure is a real-time women safety web application designed to provide **instant emergency response**, **guardian tracking**, and **live situational awareness** when a user is in danger.
 
@@ -58,7 +58,6 @@ Naari Secure provides a **dedicated, independent safety ecosystem** where a woma
 
 ##  How to Run the Project
 
-```bash
 # Clone the repository
 git clone https://github.com/<Username>/Naari-Secure.git
 
